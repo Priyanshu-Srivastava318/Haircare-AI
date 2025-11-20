@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Payment - HairCare AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-950': '#172554',
+                        'emerald-950': '#022c22',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-950 via-slate-900 to-emerald-950 min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-blue-950/80 backdrop-blur-md z-50 border-b border-emerald-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                    <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                        HairCare AI
+                    </span>
+                </a>
+                
+                <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                        Choose Your Plan
+                    </span>
+                </h1>
+                <p class="text-gray-400 text-lg">Get comprehensive hair analysis and personalized recommendations</p>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+                
+                <!-- Free Plan -->
+                <div class="bg-gradient-to-br from-blue-900/40 to-emerald-900/40 backdrop-blur-sm rounded-3xl p-8 border border-emerald-700/30 shadow-2xl">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-blue-500/20 rounded-full px-4 py-1 mb-4">
+                            <span class="text-blue-400 font-semibold text-sm">BASIC</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Free Analysis</h2>
+                        <div class="text-5xl font-bold text-emerald-400 mb-2">₹0</div>
+                        <p class="text-gray-400">Get started with basic insights</p>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Basic hair problem assessment</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Simple root cause analysis</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">General recommendations</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-gray-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-gray-500">Detailed lifestyle plan</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-gray-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-gray-500">Personalized diet chart</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-gray-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-gray-500">Product recommendations</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-gray-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-gray-500">Progress tracking</span>
+                        </div>
+                    </div>
+
+                    <a href="diagnosis.html" class="block w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 text-center">
+                        Get Free Analysis
+                    </a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-gradient-to-br from-emerald-600/40 to-blue-600/40 backdrop-blur-sm rounded-3xl p-8 border-2 border-emerald-500/50 shadow-2xl relative transform hover:scale-105 transition-all duration-300">
+                    <!-- Popular Badge -->
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                            ⭐ MOST POPULAR
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-6 mt-4">
+                        <div class="inline-block bg-emerald-500/30 rounded-full px-4 py-1 mb-4">
+                            <span class="text-emerald-300 font-semibold text-sm">PREMIUM</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Full Report</h2>
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <span class="text-2xl text-gray-400 line-through">₹999</span>
+                            <div class="text-5xl font-bold text-emerald-400">₹499</div>
+                        </div>
+                        <p class="text-emerald-300 font-semibold">50% Launch Discount!</p>
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-white font-semibold">Everything in Free, plus:</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">Advanced AI analysis with SHAP insights</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">Comprehensive lifestyle improvement plan</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">Personalized diet chart & meal suggestions</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">Curated product recommendations</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">3-month progress tracking dashboard</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">Downloadable PDF report</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-200">Priority email support</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openPaymentModal()" class="block w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 text-center shadow-lg transform hover:scale-105">
+                        Get Premium Now
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-900/40 to-emerald-900/40 backdrop-blur-sm rounded-3xl p-8 border border-emerald-700/30 shadow-2xl">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl mb-3">🔒</div>
+                            <h3 class="text-white font-semibold mb-2">Secure Payment</h3>
+                            <p class="text-gray-400 text-sm">Bank-level encryption</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-3">💯</div>
+                            <h3 class="text-white font-semibold mb-2">Money Back</h3>
+                            <p class="text-gray-400 text-sm">7-day guarantee</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-3">⚡</div>
+                            <h3 class="text-white font-semibold mb-2">Instant Access</h3>
+                            <p class="text-gray-400 text-sm">Get results immediately</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-blue-900 to-emerald-900 rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-emerald-700/50 shadow-2xl">
+            
+            <!-- Close Button -->
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-white">Complete Payment</h2>
+                <button onclick="closePaymentModal()" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="bg-slate-900/50 rounded-xl p-6 mb-6 border border-emerald-700/20">
+                <h3 class="text-xl font-bold text-white mb-4">Order Summary</h3>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-300">Premium Report</span>
+                    <span class="text-white font-semibold">₹999</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-emerald-400">Launch Discount (50%)</span>
+                    <span class="text-emerald-400 font-semibold">- ₹500</span>
+                </div>
+                <div class="border-t border-emerald-700/30 my-3"></div>
+                <div class="flex justify-between items-center">
+                    <span class="text-white font-bold text-lg">Total</span>
+                    <span class="text-emerald-400 font-bold text-2xl">₹499</span>
+                </div>
+            </div>
+
+            <!-- Payment Methods Tabs -->
+            <div class="flex space-x-2 mb-6">
+                <button onclick="switchPaymentMethod('card')" id="cardTab" class="flex-1 py-3 px-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300">
+                    💳 Card
+                </button>
+                <button onclick="switchPaymentMethod('upi')" id="upiTab" class="flex-1 py-3 px-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-all duration-300">
+                    📱 UPI
+                </button>
+            </div>
+
+            <!-- Card Payment Form -->
+            <div id="cardForm" class="space-y-5">
+                <div>
+                    <label class="block text-gray-300 mb-2 font-medium">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" oninput="formatCardNumber(this)">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-300 mb-2 font-medium">Expiry Date</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" oninput="formatExpiry(this)">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 mb-2 font-medium">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="3" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 mb-2 font-medium">Cardholder Name</label>
+                    <input type="text" id="cardName" placeholder="John Doe" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+            </div>
+
+            <!-- UPI Payment Form -->
+            <div id="upiForm" class="hidden space-y-5">
+                <div>
+                    <label class="block text-gray-300 mb-2 font-medium">UPI ID</label>
+                    <input type="text" id="upiId" placeholder="yourname@paytm" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm mb-4">Or scan QR code</p>
+                    <div class="inline-block bg-white p-4 rounded-xl">
+                        <div class="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-600 text-sm">QR Code Here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="processPayment()" class="w-full mt-6 bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Pay ₹499 Securely
+            </button>
+
+            <!-- Security Note -->
+            <div class="mt-4 flex items-center justify-center space-x-2 text-gray-400 text-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+                <span>Secured by 256-bit SSL encryption</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-emerald-600 to-blue-600 rounded-3xl p-8 max-w-md w-full border border-emerald-500 shadow-2xl text-center">
+            <!-- Success Animation -->
+            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-3">Payment Successful!</h2>
+            <p class="text-white/90 mb-6">Your premium report is now ready. Redirecting you to recommendations...</p>
+            <div class="flex items-center justify-center space-x-2 text-white/80 text-sm">
+                <div class="animate-spin w-5 h-5 border-2 border-white/30 border-t-white rounded-full"></div>
+                <span>Please wait...</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open Payment Modal
+        function openPaymentModal() {
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        // Close Payment Modal
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        // Switch Payment Method
+        function switchPaymentMethod(method) {
+            const cardTab = document.getElementById('cardTab');
+            const upiTab = document.getElementById('upiTab');
+            const cardForm = document.getElementById('cardForm');
+            const upiForm = document.getElementById('upiForm');
+
+            if (method === 'card') {
+                cardTab.className = 'flex-1 py-3 px-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300';
+                upiTab.className = 'flex-1 py-3 px-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-all duration-300';
+                cardForm.classList.remove('hidden');
+                upiForm.classList.add('hidden');
+            } else {
+                upiTab.className = 'flex-1 py-3 px-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300';
+                cardTab.className = 'flex-1 py-3 px-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-all duration-300';
+                upiForm.classList.remove('hidden');
+                cardForm.classList.add('hidden');
+            }
+        }
+
+        // Format Card Number
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\s/g, '');
+            value = value.replace(/[^0-9]/g, '');
+            let formattedValue = value.match(/.{1,4}/g);
+            input.value = formattedValue ? formattedValue.join(' ') : value;
+        }
+
+        // Format Expiry Date
+        function formatExpiry(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            input.value = value;
+        }
+
+        // Process Payment
+        function processPayment() {
+            // Validate fields (basic)
+            const cardNumber = document.getElementById('cardNumber').value;
+            const upiId = document.getElementById('upiId').value;
+            
+            if (!cardNumber && !upiId) {
+                alert('Please enter payment details');
+                return;
+            }
+
+            // Close payment modal
+            closePaymentModal();
+            
+            // Show success modal
+            document.getElementById('successModal').classList.remove('hidden');
+
+            // Simulate payment processing and redirect
+            setTimeout(() => {
+                // Save payment status
+                const paymentData = {
+                    status: 'success',
+                    amount: 499,
+                    plan: 'premium',
+                    timestamp: new Date().toISOString()
+                };
+                const existingPayments = JSON.parse(localStorage.getItem('payments') || '[]');
+                existingPayments.push(paymentData);
+                localStorage.setItem('payments', JSON.stringify(existingPayments));
+                localStorage.setItem('isPremium', 'true');
+
+                // Redirect to recommendations page
+                window.location.href = 'recommendations.html';
+            }, 3000);
+        }
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            const paymentModal = document.getElementById('paymentModal');
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

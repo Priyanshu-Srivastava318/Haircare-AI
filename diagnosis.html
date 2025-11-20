@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Analysis - Diagnosis Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-950': '#172554',
+                        'emerald-950': '#022c22',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-950 via-slate-900 to-emerald-950 min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-blue-950/80 backdrop-blur-md z-50 border-b border-emerald-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                    <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                        HairCare AI
+                    </span>
+                </a>
+                
+                <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                        Hair Analysis Form
+                    </span>
+                </h1>
+                <p class="text-gray-400 text-lg">Help us understand your hair health better</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm text-gray-400">Step <span id="currentStep">1</span> of 6</span>
+                    <span class="text-sm text-emerald-400"><span id="progressPercent">17</span>% Complete</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-3">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-emerald-500 h-3 rounded-full transition-all duration-500" style="width: 17%"></div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="bg-gradient-to-br from-blue-900/40 to-emerald-900/40 backdrop-blur-sm rounded-3xl p-8 border border-emerald-700/30 shadow-2xl">
+                
+                <!-- Step 1: Basic Information -->
+                <div id="step1" class="step-content">
+                    <h2 class="text-2xl font-bold text-white mb-6">Basic Information</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Full Name *</label>
+                            <input type="text" id="name" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="Enter your full name" required>
+                            <span class="error-msg text-red-400 text-sm hidden">Please enter your name</span>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-gray-300 mb-2 font-medium">Age *</label>
+                                <input type="number" id="age" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="25" min="1" max="120" required>
+                                <span class="error-msg text-red-400 text-sm hidden">Please enter valid age</span>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-300 mb-2 font-medium">Gender *</label>
+                                <select id="gender" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <span class="error-msg text-red-400 text-sm hidden">Please select gender</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Email *</label>
+                            <input type="email" id="email" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="your.email@example.com" required>
+                            <span class="error-msg text-red-400 text-sm hidden">Please enter valid email</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Hair Problem Details -->
+                <div id="step2" class="step-content hidden">
+                    <h2 class="text-2xl font-bold text-white mb-6">Hair Problem Details</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Primary Hair Concern *</label>
+                            <select id="hairConcern" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Concern</option>
+                                <option value="Hair Fall">Hair Fall</option>
+                                <option value="Dandruff">Dandruff</option>
+                                <option value="Premature Greying">Premature Greying</option>
+                                <option value="Dry Scalp">Dry Scalp</option>
+                                <option value="Oily Scalp">Oily Scalp</option>
+                                <option value="Hair Thinning">Hair Thinning</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select concern</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Duration of Problem *</label>
+                            <select id="duration" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Duration</option>
+                                <option value="Less than 3 months">Less than 3 months</option>
+                                <option value="3-6 months">3-6 months</option>
+                                <option value="6-12 months">6-12 months</option>
+                                <option value="More than 1 year">More than 1 year</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select duration</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Severity Level *</label>
+                            <div class="flex items-center space-x-4">
+                                <input type="range" id="severity" min="1" max="4" value="2" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" oninput="updateSeverityLabel()">
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-400 mt-2">
+                                <span>Mild</span>
+                                <span id="severityLabel" class="text-emerald-400 font-semibold">Moderate</span>
+                                <span>Severe</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Family History of Hair Problems? *</label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="familyHistory" value="Yes" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500">
+                                    <span class="text-white">Yes</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="familyHistory" value="No" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" checked>
+                                    <span class="text-white">No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Lifestyle Factors -->
+                <div id="step3" class="step-content hidden">
+                    <h2 class="text-2xl font-bold text-white mb-6">Lifestyle Factors</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Stress Level *</label>
+                            <div class="flex items-center space-x-4">
+                                <input type="range" id="stressLevel" min="1" max="4" value="2" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" oninput="updateStressLabel()">
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-400 mt-2">
+                                <span>Low</span>
+                                <span id="stressLabel" class="text-emerald-400 font-semibold">Medium</span>
+                                <span>Very High</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Sleep Duration *</label>
+                            <select id="sleepDuration" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Duration</option>
+                                <option value="Less than 4 hours">Less than 4 hours</option>
+                                <option value="4-6 hours">4-6 hours</option>
+                                <option value="6-8 hours">6-8 hours</option>
+                                <option value="More than 8 hours">More than 8 hours</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select sleep duration</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Exercise Frequency *</label>
+                            <select id="exerciseFreq" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Frequency</option>
+                                <option value="Daily">Daily</option>
+                                <option value="3-4 times per week">3-4 times per week</option>
+                                <option value="1-2 times per week">1-2 times per week</option>
+                                <option value="Rarely">Rarely</option>
+                                <option value="Never">Never</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select exercise frequency</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Daily Water Intake *</label>
+                            <select id="waterIntake" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Intake</option>
+                                <option value="Less than 2L">Less than 2 liters</option>
+                                <option value="2-3L">2-3 liters</option>
+                                <option value="More than 3L">More than 3 liters</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select water intake</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Smoking/Alcohol Consumption *</label>
+                            <select id="smokingAlcohol" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Option</option>
+                                <option value="Yes - Regular">Yes - Regular</option>
+                                <option value="Occasionally">Occasionally</option>
+                                <option value="No">No</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select an option</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Diet Habits -->
+                <div id="step4" class="step-content hidden">
+                    <h2 class="text-2xl font-bold text-white mb-6">Diet Habits</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Dietary Preference *</label>
+                            <select id="dietType" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Type</option>
+                                <option value="Vegetarian">Vegetarian</option>
+                                <option value="Non-Vegetarian">Non-Vegetarian</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="Eggetarian">Eggetarian</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select diet type</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Protein Intake Level *</label>
+                            <select id="proteinIntake" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Level</option>
+                                <option value="High">High (eggs, meat, protein shakes daily)</option>
+                                <option value="Medium">Medium (regular protein sources)</option>
+                                <option value="Low">Low (minimal protein sources)</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select protein intake</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Fresh Fruits & Vegetables Consumption *</label>
+                            <select id="fruitsVeggies" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Frequency</option>
+                                <option value="Daily">Daily</option>
+                                <option value="4-5 times a week">4-5 times a week</option>
+                                <option value="2-3 times a week">2-3 times a week</option>
+                                <option value="Rarely">Rarely</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select frequency</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Junk Food Frequency *</label>
+                            <select id="junkFood" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" required>
+                                <option value="">Select Frequency</option>
+                                <option value="Daily">Daily</option>
+                                <option value="3-4 times a week">3-4 times a week</option>
+                                <option value="Once a week">Once a week</option>
+                                <option value="Rarely">Rarely</option>
+                                <option value="Never">Never</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-sm hidden">Please select frequency</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Vitamin/Supplement Usage *</label>
+                            <div class="flex space-x-4 mb-3">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="supplements" value="Yes" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" onchange="toggleSupplementDetails(true)">
+                                    <span class="text-white">Yes</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="supplements" value="No" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" checked onchange="toggleSupplementDetails(false)">
+                                    <span class="text-white">No</span>
+                                </label>
+                            </div>
+                            <input type="text" id="supplementDetails" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors hidden" placeholder="Specify supplements (e.g., Biotin, Vitamin D, etc.)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Medical History -->
+                <div id="step5" class="step-content hidden">
+                    <h2 class="text-2xl font-bold text-white mb-6">Medical History</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Chronic Diseases *</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" value="Thyroid" class="w-5 h-5 text-emerald-500 rounded focus:ring-emerald-500">
+                                    <span class="text-white">Thyroid Disorder</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" value="PCOD" class="w-5 h-5 text-emerald-500 rounded focus:ring-emerald-500">
+                                    <span class="text-white">PCOD/PCOS</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" value="Diabetes" class="w-5 h-5 text-emerald-500 rounded focus:ring-emerald-500">
+                                    <span class="text-white">Diabetes</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" value="Hypertension" class="w-5 h-5 text-emerald-500 rounded focus:ring-emerald-500">
+                                    <span class="text-white">Hypertension</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" value="None" class="w-5 h-5 text-emerald-500 rounded focus:ring-emerald-500" id="noDiseases" onchange="handleNoneCheckbox('diseases')">
+                                    <span class="text-white">None</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Current Medications *</label>
+                            <div class="flex space-x-4 mb-3">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="medications" value="Yes" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" onchange="toggleMedicationDetails(true)">
+                                    <span class="text-white">Yes</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="medications" value="No" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" checked onchange="toggleMedicationDetails(false)">
+                                    <span class="text-white">No</span>
+                                </label>
+                            </div>
+                            <textarea id="medicationDetails" rows="3" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors hidden" placeholder="Please specify medications"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Recent Major Illness/Surgery (Last 6 months) *</label>
+                            <div class="flex space-x-4 mb-3">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="recentIllness" value="Yes" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" onchange="toggleIllnessDetails(true)">
+                                    <span class="text-white">Yes</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="recentIllness" value="No" class="w-5 h-5 text-emerald-500 focus:ring-emerald-500" checked onchange="toggleIllnessDetails(false)">
+                                    <span class="text-white">No</span>
+                                </label>
+                            </div>
+                            <textarea id="illnessDetails" rows="3" class="w-full bg-slate-900/50 border border-emerald-700/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors hidden" placeholder="Please provide details"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6: Image Upload -->
+                <div id="step6" class="step-content hidden">
+                    <h2 class="text-2xl font-bold text-white mb-6">Upload Images</h2>
+                    
+                    <div class="space-y-5">
+                        <div class="text-gray-400 mb-4">
+                            <p class="mb-2">Please upload clear images of your scalp and hair for better analysis.</p>
+                            <p class="text-sm">Supported formats: JPG, PNG (Max 5MB each)</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Scalp Image (Top View) *</label>
+                            <div class="relative">
+                                <input type="file" id="scalpImage" accept="image/*" class="w-full bg-slate-900/50 border-2 border-dashed border-emerald-700/30 rounded-xl px-4 py-8 text-white focus:outline-none focus:border-emerald-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-emerald-600 file:text-white file:cursor-pointer hover:file:bg-emerald-700" onchange="previewImage(this, 'scalpPreview')">
+                            </div>
+                            <div id="scalpPreview" class="mt-3 hidden">
+                                <img src="" alt="Scalp Preview" class="w-32 h-32 object-cover rounded-lg border-2 border-emerald-500">
+                            </div>
+                            <span class="error-msg text-red-400 text-sm hidden">Please upload scalp image</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-medium">Hair Density Image (Side View)</label>
+                            <div class="relative">
+                                <input type="file" id="hairImage" accept="image/*" class="w-full bg-slate-900/50 border-2 border-dashed border-emerald-700/30 rounded-xl px-4 py-8 text-white focus:outline-none focus:border-emerald-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-emerald-600 file:text-white file:cursor-pointer hover:file:bg-emerald-700" onchange="previewImage(this, 'hairPreview')">
+                            </div>
+                            <div id="hairPreview" class="mt-3 hidden">
+                                <img src="" alt="Hair Preview" class="w-32 h-32 object-cover rounded-lg border-2 border-emerald-500">
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-900/30 border border-blue-700/30 rounded-xl p-4">
+                            <p class="text-gray-300 text-sm">
+                                <strong class="text-blue-400">Note:</strong> Images will be analyzed by our AI system. Make sure images are clear and well-lit for accurate results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between mt-8 pt-6 border-t border-emerald-900/30">
+                    <button id="prevBtn" onclick="changeStep(-1)" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-xl transition-all duration-300 hidden">
+                        Previous
+                    </button>
+                    <div></div>
+                    <button id="nextBtn" onclick="changeStep(1)" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Next Step
+                    </button>
+                    <button id="submitBtn" onclick="submitForm()" class="px-8 py-3 bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hidden">
+                        Submit for Analysis
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-blue-900 to-emerald-900 rounded-3xl p-8 max-w-md w-full border border-emerald-700/50 shadow-2xl text-center">
+            <div class="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-12 h-12 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-3">Response Submitted!</h2>
+            <p class="text-gray-300 mb-6">Your hair analysis data has been successfully submitted. Our AI will process your information.</p>
+            <button onclick="redirectToHome()" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-300">
+                Return to Home
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        // Google Sheets Web App URL - REPLACE THIS WITH YOUR URL
+        const GOOGLE_SHEET_URL = 'YOUR_https://script.google.com/macros/s/AKfycbzXC_7ywjVAjQRq34rsdnVPVnA3Kt1YPHNyMsp8qUEBdJCXPDJsFdX-zKeA8H7Oa9rQdQ/execGOOGLE_SCRIPT_URL_HERE';
+
+        // Severity label update
+        function updateSeverityLabel() {
+            const value = document.getElementById('severity').value;
+            const labels = ['', 'Mild', 'Moderate', 'Severe', 'Very Severe'];
+            document.getElementById('severityLabel').textContent = labels[value];
+        }
+
+        // Stress label update
+        function updateStressLabel() {
+            const value = document.getElementById('stressLevel').value;
+            const labels = ['', 'Low', 'Medium', 'High', 'Very High'];
+            document.getElementById('stressLabel').textContent = labels[value];
+        }
+
+        // Toggle supplement details
+        function toggleSupplementDetails(show) {
+            const details = document.getElementById('supplementDetails');
+            if (show) {
+                details.classList.remove('hidden');
+            } else {
+                details.classList.add('hidden');
+                details.value = '';
+            }
+        }
+
+        // Toggle medication details
+        function toggleMedicationDetails(show) {
+            const details = document.getElementById('medicationDetails');
+            if (show) {
+                details.classList.remove('hidden');
+            } else {
+                details.classList.add('hidden');
+                details.value = '';
+            }
+        }
+
+        // Toggle illness details
+        function toggleIllnessDetails(show) {
+            const details = document.getElementById('illnessDetails');
+            if (show) {
+                details.classList.remove('hidden');
+            } else {
+                details.classList.add('hidden');
+                details.value = '';
+            }
+        }
+
+        // Handle "None" checkbox
+        function handleNoneCheckbox(type) {
+            const noneCheckbox = document.getElementById('noDiseases');
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][value!="None"]');
+            
+            if (noneCheckbox.checked) {
+                checkboxes.forEach(cb => cb.checked = false);
+            }
+        }
+
+        // Preview uploaded image
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+            const img = preview.querySelector('img');
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                    preview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Validate current step
+        function validateStep(step) {
+            let isValid = true;
+            const currentStepDiv = document.getElementById(`step${step}`);
+            const errorMsgs = currentStepDiv.querySelectorAll('.error-msg');
+            
+            // Hide all error messages first
+            errorMsgs.forEach(msg => msg.classList.add('hidden'));
+
+            if (step === 1) {
+                const name = document.getElementById('name').value.trim();
+                const age = document.getElementById('age').value;
+                const gender = document.getElementById('gender').value;
+                const email = document.getElementById('email').value.trim();
+
+                if (!name) {
+                    showError('name');
+                    isValid = false;
+                }
+                if (!age || age < 1 || age > 120) {
+                    showError('age');
+                    isValid = false;
+                }
+                if (!gender) {
+                    showError('gender');
+                    isValid = false;
+                }
+                if (!email || !isValidEmail(email)) {
+                    showError('email');
+                    isValid = false;
+                }
+            } else if (step === 2) {
+                const hairConcern = document.getElementById('hairConcern').value;
+                const duration = document.getElementById('duration').value;
+
+                if (!hairConcern) {
+                    showError('hairConcern');
+                    isValid = false;
+                }
+                if (!duration) {
+                    showError('duration');
+                    isValid = false;
+                }
+            } else if (step === 3) {
+                const sleepDuration = document.getElementById('sleepDuration').value;
+                const exerciseFreq = document.getElementById('exerciseFreq').value;
+                const waterIntake = document.getElementById('waterIntake').value;
+                const smokingAlcohol = document.getElementById('smokingAlcohol').value;
+
+                if (!sleepDuration) {
+                    showError('sleepDuration');
+                    isValid = false;
+                }
+                if (!exerciseFreq) {
+                    showError('exerciseFreq');
+                    isValid = false;
+                }
+                if (!waterIntake) {
+                    showError('waterIntake');
+                    isValid = false;
+                }
+                if (!smokingAlcohol) {
+                    showError('smokingAlcohol');
+                    isValid = false;
+                }
+            } else if (step === 4) {
+                const dietType = document.getElementById('dietType').value;
+                const proteinIntake = document.getElementById('proteinIntake').value;
+                const fruitsVeggies = document.getElementById('fruitsVeggies').value;
+                const junkFood = document.getElementById('junkFood').value;
+
+                if (!dietType) {
+                    showError('dietType');
+                    isValid = false;
+                }
+                if (!proteinIntake) {
+                    showError('proteinIntake');
+                    isValid = false;
+                }
+                if (!fruitsVeggies) {
+                    showError('fruitsVeggies');
+                    isValid = false;
+                }
+                if (!junkFood) {
+                    showError('junkFood');
+                    isValid = false;
+                }
+            } else if (step === 6) {
+                const scalpImage = document.getElementById('scalpImage').files.length;
+                if (!scalpImage) {
+                    showError('scalpImage');
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        function showError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorMsg = field.parentElement.querySelector('.error-msg');
+            if (errorMsg) {
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Change step function
+        function changeStep(direction) {
+            if (direction === 1 && !validateStep(currentStep)) {
+                return;
+            }
+
+            // Hide current step
+            document.getElementById(`step${currentStep}`).classList.add('hidden');
+
+            // Update step number
+            currentStep += direction;
+
+            // Show new step
+            document.getElementById(`step${currentStep}`).classList.remove('hidden');
+
+            // Update progress bar
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentStep').textContent = currentStep;
+            document.getElementById('progressPercent').textContent = Math.round(progress);
+
+            // Update buttons
+            document.getElementById('prevBtn').classList.toggle('hidden', currentStep === 1);
+            document.getElementById('nextBtn').classList.toggle('hidden', currentStep === totalSteps);
+            document.getElementById('submitBtn').classList.toggle('hidden', currentStep !== totalSteps);
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Collect all form data
+        function collectFormData() {
+            // Get chronic diseases
+            const diseases = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                diseases.push(cb.value);
+            });
+
+            const formData = {
+                // Basic Info
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value,
+                email: document.getElementById('email').value,
+                
+                // Hair Problem
+                hairConcern: document.getElementById('hairConcern').value,
+                duration: document.getElementById('duration').value,
+                severity: ['', 'Mild', 'Moderate', 'Severe', 'Very Severe'][document.getElementById('severity').value],
+                familyHistory: document.querySelector('input[name="familyHistory"]:checked').value,
+                
+                // Lifestyle
+                stressLevel: ['', 'Low', 'Medium', 'High', 'Very High'][document.getElementById('stressLevel').value],
+                sleepDuration: document.getElementById('sleepDuration').value,
+                exerciseFreq: document.getElementById('exerciseFreq').value,
+                waterIntake: document.getElementById('waterIntake').value,
+                smokingAlcohol: document.getElementById('smokingAlcohol').value,
+                
+                // Diet
+                dietType: document.getElementById('dietType').value,
+                proteinIntake: document.getElementById('proteinIntake').value,
+                fruitsVeggies: document.getElementById('fruitsVeggies').value,
+                junkFood: document.getElementById('junkFood').value,
+                supplements: document.querySelector('input[name="supplements"]:checked').value,
+                supplementDetails: document.getElementById('supplementDetails').value,
+                
+                // Medical
+                chronicDiseases: diseases.join(', '),
+                medications: document.querySelector('input[name="medications"]:checked').value,
+                medicationDetails: document.getElementById('medicationDetails').value,
+                recentIllness: document.querySelector('input[name="recentIllness"]:checked').value,
+                illnessDetails: document.getElementById('illnessDetails').value,
+                
+                // Timestamp
+                timestamp: new Date().toLocaleString()
+            };
+
+            return formData;
+        }
+
+        // Submit form
+        async function submitForm() {
+            if (!validateStep(6)) {
+                return;
+            }
+
+            const formData = collectFormData();
+
+            try {
+                // Send to Google Sheets
+                const response = await fetch(GOOGLE_SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Show success popup
+                document.getElementById('successPopup').classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Form submitted successfully! (Data saved locally)');
+                
+                // Fallback: Save to localStorage
+                const existingData = JSON.parse(localStorage.getItem('hairAnalysisData') || '[]');
+                existingData.push(formData);
+                localStorage.setItem('hairAnalysisData', JSON.stringify(existingData));
+                
+                document.getElementById('successPopup').classList.remove('hidden');
+            }
+        }
+
+        // Redirect to home
+       function redirectToHome() {
+    window.location.href = 'results.html';  // Changed from index.html
+}
+        // Initialize on load
+        window.onload = function() {
+            updateSeverityLabel();
+            updateStressLabel();
+        };
+    </script>
+
+</body>
+</html>
