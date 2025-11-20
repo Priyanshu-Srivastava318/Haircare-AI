@@ -1,0 +1,109 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - HairCare AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-950': '#172554',
+                        'emerald-950': '#022c22',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-950 via-slate-900 to-emerald-950 min-h-screen flex items-center justify-center px-4">
+
+    <!-- Main Card -->
+    <div class="w-full max-w-md bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-emerald-600/20 shadow-2xl">
+
+        <!-- Heading -->
+        <h1 id="formTitle" class="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-blue-300 to-emerald-300 bg-clip-text text-transparent">
+            Login
+        </h1>
+
+        <!-- LOGIN FORM -->
+        <div id="loginForm">
+            <form class="space-y-5">
+
+                <div>
+                    <label class="text-gray-300 text-sm">Email</label>
+                    <input type="email" class="w-full mt-1 px-4 py-3 bg-white/10 text-white border border-emerald-600/30 rounded-xl focus:outline-none focus:border-emerald-400">
+                </div>
+
+                <div>
+                    <label class="text-gray-300 text-sm">Password</label>
+                    <input type="password" class="w-full mt-1 px-4 py-3 bg-white/10 text-white border border-emerald-600/30 rounded-xl focus:outline-none focus:border-emerald-400">
+                </div>
+
+                <button type="button" class="w-full bg-gradient-to-r from-blue-600 to-emerald-600 py-3 rounded-xl text-white font-semibold hover:scale-105 transition-all shadow-lg">
+                    Login
+                </button>
+            </form>
+
+            <p class="text-center text-gray-400 mt-4 text-sm">
+                Don't have an account?
+                <span onclick="toggleForm()" class="text-emerald-400 cursor-pointer hover:underline">
+                    Sign Up
+                </span>
+            </p>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signupForm" class="hidden">
+            <form class="space-y-5">
+
+                <div>
+                    <label class="text-gray-300 text-sm">Full Name</label>
+                    <input type="text" class="w-full mt-1 px-4 py-3 bg-white/10 text-white border border-emerald-600/30 rounded-xl focus:outline-none focus:border-emerald-400">
+                </div>
+
+                <div>
+                    <label class="text-gray-300 text-sm">Email</label>
+                    <input type="email" class="w-full mt-1 px-4 py-3 bg-white/10 text-white border border-emerald-600/30 rounded-xl focus:outline-none focus:border-emerald-400">
+                </div>
+
+                <div>
+                    <label class="text-gray-300 text-sm">Password</label>
+                    <input type="password" class="w-full mt-1 px-4 py-3 bg-white/10 text-white border border-emerald-600/30 rounded-xl focus:outline-none focus:border-emerald-400">
+                </div>
+
+                <button type="button" class="w-full bg-gradient-to-r from-emerald-600 to-blue-600 py-3 rounded-xl text-white font-semibold hover:scale-105 transition-all shadow-lg">
+                    Sign Up
+                </button>
+            </form>
+
+            <p class="text-center text-gray-400 mt-4 text-sm">
+                Already have an account?
+                <span onclick="toggleForm()" class="text-emerald-400 cursor-pointer hover:underline">
+                    Login
+                </span>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById("loginForm");
+            const signupForm = document.getElementById("signupForm");
+            const formTitle = document.getElementById("formTitle");
+
+            loginForm.classList.toggle("hidden");
+            signupForm.classList.toggle("hidden");
+
+            formTitle.textContent = loginForm.classList.contains("hidden") 
+                ? "Sign Up" 
+                : "Login";
+        }
+    </script>
+
+</body>
+</html>
